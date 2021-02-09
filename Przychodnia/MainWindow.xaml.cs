@@ -31,5 +31,12 @@ namespace Przychodnia
             Przychodnia.RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
         }
+
+        private void All_patientShow(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.AllPatientWindow allPatientWindow = new AllPatientWindow();
+            this.Hide();
+            allPatientWindow.Show();
+        }
     }
 }

@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="register_the_patient" Content="Button" HorizontalAlignment="Left" Margin="50,42,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="register_the_patient_handler"/>
+        <Button x:Name="register_the_patient" Content="Register" HorizontalAlignment="Left" Margin="50,42,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="register_the_patient_handler"/>
+        <Button Content="All patient show" HorizontalAlignment="Left" Margin="50,113,0,0" VerticalAlignment="Top" Width="135" Height="53" Click="All_patientShow"/>
 
     </Grid>
 </Window>

@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="projekt6Model.karta_pacjenta" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="projekt6Model.lek" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="projekt6Model.lekarz" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="projekt6Model.pacjent" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.pacjent" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="projekt6Model.rejestracja" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="projekt6Model.specjalizacja" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="projekt6Model.uslugi" Width="1.5" PointX="0.75" PointY="24.25" IsExpanded="true" />
