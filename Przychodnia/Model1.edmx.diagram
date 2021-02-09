@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0e4c68252c3142919778b42936a96fe0" Name="Diagram1">
+        <EntityTypeShape EntityType="projekt6Model.choroby" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.dawka_leku" Width="1.5" PointX="1.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.jednostka_leku" Width="1.5" PointX="1.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.karta_pacjenta" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.lek" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.lekarz" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.pacjent" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.rejestracja" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.specjalizacja" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="projekt6Model.uslugi" Width="1.5" PointX="0.75" PointY="24.25" IsExpanded="true" />
+        <AssociationConnector Association="projekt6Model.ref_kod_chor" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_dawk" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_jedn" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_lek" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_leka_karta" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_pacj_karta" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_uslu" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_leka" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_spec" ManuallyRouted="false" />
+        <AssociationConnector Association="projekt6Model.ref_id_pacj" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

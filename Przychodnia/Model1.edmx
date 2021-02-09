@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="projekt6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="choroby">
+          <Key>
+            <PropertyRef Name="kod_choroby" />
+          </Key>
+          <Property Name="id_choroby" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kod_choroby" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="nazwa_choroby" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dawka_leku">
+          <Key>
+            <PropertyRef Name="id_dawki" />
+          </Key>
+          <Property Name="id_dawki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dawka" Type="int" Nullable="false" />
+          <Property Name="jednostka" Type="int" />
+        </EntityType>
+        <EntityType Name="jednostka_leku">
+          <Key>
+            <PropertyRef Name="id_jednostki" />
+          </Key>
+          <Property Name="id_jednostki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa_jednostki" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="karta_pacjenta">
+          <Key>
+            <PropertyRef Name="id_karty" />
+          </Key>
+          <Property Name="id_karty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pacjenta" Type="int" />
+          <Property Name="wykonane_uslugi" Type="int" />
+          <Property Name="kod_choroby" Type="varchar" MaxLength="6" />
+          <Property Name="id_leku" Type="int" />
+          <Property Name="lekarz_prowadzacy" Type="int" />
+          <Property Name="diagnoza" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="lek">
+          <Key>
+            <PropertyRef Name="id_leku" />
+          </Key>
+          <Property Name="id_leku" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa_leku" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dawka" Type="int" />
+        </EntityType>
+        <EntityType Name="lekarz">
+          <Key>
+            <PropertyRef Name="id_lekarza" />
+          </Key>
+          <Property Name="id_lekarza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="id_specjalizacji" Type="int" />
+        </EntityType>
+        <EntityType Name="pacjent">
+          <Key>
+            <PropertyRef Name="id_pacjenta" />
+          </Key>
+          <Property Name="id_pacjenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PESEL" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="telefon" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="miasto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ulica" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nr_lokalu" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="rejestracja">
+          <Key>
+            <PropertyRef Name="id_rejestracji" />
+          </Key>
+          <Property Name="id_rejestracji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pacjenta" Type="int" />
+          <Property Name="id_lekarza" Type="int" />
+          <Property Name="data_rejestracji" Type="date" Nullable="false" />
+          <Property Name="godzina" Type="time" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="specjalizacja">
+          <Key>
+            <PropertyRef Name="id_specjalizacji" />
+          </Key>
+          <Property Name="id_specjalizacji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa_specjalizacji" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="uslugi">
+          <Key>
+            <PropertyRef Name="id_uslugi" />
+          </Key>
+          <Property Name="id_uslugi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa_uslugi" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cena_uslugi" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="ref_id_dawk">
+          <End Role="dawka_leku" Type="Self.dawka_leku" Multiplicity="0..1" />
+          <End Role="lek" Type="Self.lek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dawka_leku">
+              <PropertyRef Name="id_dawki" />
+            </Principal>
+            <Dependent Role="lek">
+              <PropertyRef Name="dawka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_jedn">
+          <End Role="jednostka_leku" Type="Self.jednostka_leku" Multiplicity="0..1" />
+          <End Role="dawka_leku" Type="Self.dawka_leku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jednostka_leku">
+              <PropertyRef Name="id_jednostki" />
+            </Principal>
+            <Dependent Role="dawka_leku">
+              <PropertyRef Name="jednostka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_lek">
+          <End Role="lek" Type="Self.lek" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lek">
+              <PropertyRef Name="id_leku" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="id_leku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_leka">
+          <End Role="lekarz" Type="Self.lekarz" Multiplicity="0..1" />
+          <End Role="rejestracja" Type="Self.rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lekarz">
+              <PropertyRef Name="id_lekarza" />
+            </Principal>
+            <Dependent Role="rejestracja">
+              <PropertyRef Name="id_lekarza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_leka_karta">
+          <End Role="lekarz" Type="Self.lekarz" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lekarz">
+              <PropertyRef Name="id_lekarza" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="lekarz_prowadzacy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_pacj">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="0..1" />
+          <End Role="rejestracja" Type="Self.rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pacjenta" />
+            </Principal>
+            <Dependent Role="rejestracja">
+              <PropertyRef Name="id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_pacj_karta">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pacjenta" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_spec">
+          <End Role="specjalizacja" Type="Self.specjalizacja" Multiplicity="0..1" />
+          <End Role="lekarz" Type="Self.lekarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="specjalizacja">
+              <PropertyRef Name="id_specjalizacji" />
+            </Principal>
+            <Dependent Role="lekarz">
+              <PropertyRef Name="id_specjalizacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_uslu">
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uslugi">
+              <PropertyRef Name="id_uslugi" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="wykonane_uslugi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_kod_chor">
+          <End Role="choroby" Type="Self.choroby" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="choroby">
+              <PropertyRef Name="kod_choroby" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="kod_choroby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="projekt6ModelStoreContainer">
+          <EntitySet Name="choroby" EntityType="Self.choroby" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dawka_leku" EntityType="Self.dawka_leku" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jednostka_leku" EntityType="Self.jednostka_leku" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="karta_pacjenta" EntityType="Self.karta_pacjenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lek" EntityType="Self.lek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lekarz" EntityType="Self.lekarz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pacjent" EntityType="Self.pacjent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rejestracja" EntityType="Self.rejestracja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="specjalizacja" EntityType="Self.specjalizacja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uslugi" EntityType="Self.uslugi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="ref_id_dawk" Association="Self.ref_id_dawk">
+            <End Role="dawka_leku" EntitySet="dawka_leku" />
+            <End Role="lek" EntitySet="lek" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_jedn" Association="Self.ref_id_jedn">
+            <End Role="jednostka_leku" EntitySet="jednostka_leku" />
+            <End Role="dawka_leku" EntitySet="dawka_leku" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_lek" Association="Self.ref_id_lek">
+            <End Role="lek" EntitySet="lek" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_leka" Association="Self.ref_id_leka">
+            <End Role="lekarz" EntitySet="lekarz" />
+            <End Role="rejestracja" EntitySet="rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_leka_karta" Association="Self.ref_id_leka_karta">
+            <End Role="lekarz" EntitySet="lekarz" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_pacj" Association="Self.ref_id_pacj">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="rejestracja" EntitySet="rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_pacj_karta" Association="Self.ref_id_pacj_karta">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_spec" Association="Self.ref_id_spec">
+            <End Role="specjalizacja" EntitySet="specjalizacja" />
+            <End Role="lekarz" EntitySet="lekarz" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_uslu" Association="Self.ref_id_uslu">
+            <End Role="uslugi" EntitySet="uslugi" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_kod_chor" Association="Self.ref_kod_chor">
+            <End Role="choroby" EntitySet="choroby" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="projekt6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="choroby">
+          <Key>
+            <PropertyRef Name="kod_choroby" />
+          </Key>
+          <Property Name="id_choroby" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kod_choroby" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwa_choroby" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="karta_pacjenta" Relationship="Self.ref_kod_chor" FromRole="choroby" ToRole="karta_pacjenta" />
+        </EntityType>
+        <EntityType Name="dawka_leku">
+          <Key>
+            <PropertyRef Name="id_dawki" />
+          </Key>
+          <Property Name="id_dawki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dawka" Type="Int32" Nullable="false" />
+          <Property Name="jednostka" Type="Int32" />
+          <NavigationProperty Name="lek" Relationship="Self.ref_id_dawk" FromRole="dawka_leku" ToRole="lek" />
+          <NavigationProperty Name="jednostka_leku" Relationship="Self.ref_id_jedn" FromRole="dawka_leku" ToRole="jednostka_leku" />
+        </EntityType>
+        <EntityType Name="jednostka_leku">
+          <Key>
+            <PropertyRef Name="id_jednostki" />
+          </Key>
+          <Property Name="id_jednostki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa_jednostki" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="dawka_leku" Relationship="Self.ref_id_jedn" FromRole="jednostka_leku" ToRole="dawka_leku" />
+        </EntityType>
+        <EntityType Name="karta_pacjenta">
+          <Key>
+            <PropertyRef Name="id_karty" />
+          </Key>
+          <Property Name="id_karty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pacjenta" Type="Int32" />
+          <Property Name="wykonane_uslugi" Type="Int32" />
+          <Property Name="kod_choroby" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="id_leku" Type="Int32" />
+          <Property Name="lekarz_prowadzacy" Type="Int32" />
+          <Property Name="diagnoza" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="choroby" Relationship="Self.ref_kod_chor" FromRole="karta_pacjenta" ToRole="choroby" />
+          <NavigationProperty Name="lek" Relationship="Self.ref_id_lek" FromRole="karta_pacjenta" ToRole="lek" />
+          <NavigationProperty Name="lekarz" Relationship="Self.ref_id_leka_karta" FromRole="karta_pacjenta" ToRole="lekarz" />
+          <NavigationProperty Name="pacjent" Relationship="Self.ref_id_pacj_karta" FromRole="karta_pacjenta" ToRole="pacjent" />
+          <NavigationProperty Name="uslugi" Relationship="Self.ref_id_uslu" FromRole="karta_pacjenta" ToRole="uslugi" />
+        </EntityType>
+        <EntityType Name="lek">
+          <Key>
+            <PropertyRef Name="id_leku" />
+          </Key>
+          <Property Name="id_leku" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa_leku" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dawka" Type="Int32" />
+          <NavigationProperty Name="dawka_leku" Relationship="Self.ref_id_dawk" FromRole="lek" ToRole="dawka_leku" />
+          <NavigationProperty Name="karta_pacjenta" Relationship="Self.ref_id_lek" FromRole="lek" ToRole="karta_pacjenta" />
+        </EntityType>
+        <EntityType Name="lekarz">
+          <Key>
+            <PropertyRef Name="id_lekarza" />
+          </Key>
+          <Property Name="id_lekarza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_specjalizacji" Type="Int32" />
+          <NavigationProperty Name="karta_pacjenta" Relationship="Self.ref_id_leka_karta" FromRole="lekarz" ToRole="karta_pacjenta" />
+          <NavigationProperty Name="rejestracja" Relationship="Self.ref_id_leka" FromRole="lekarz" ToRole="rejestracja" />
+          <NavigationProperty Name="specjalizacja" Relationship="Self.ref_id_spec" FromRole="lekarz" ToRole="specjalizacja" />
+        </EntityType>
+        <EntityType Name="pacjent">
+          <Key>
+            <PropertyRef Name="id_pacjenta" />
+          </Key>
+          <Property Name="id_pacjenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PESEL" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="telefon" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="miasto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nr_lokalu" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="karta_pacjenta" Relationship="Self.ref_id_pacj_karta" FromRole="pacjent" ToRole="karta_pacjenta" />
+          <NavigationProperty Name="rejestracja" Relationship="Self.ref_id_pacj" FromRole="pacjent" ToRole="rejestracja" />
+        </EntityType>
+        <EntityType Name="rejestracja">
+          <Key>
+            <PropertyRef Name="id_rejestracji" />
+          </Key>
+          <Property Name="id_rejestracji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pacjenta" Type="Int32" />
+          <Property Name="id_lekarza" Type="Int32" />
+          <Property Name="data_rejestracji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="godzina" Type="Time" Nullable="false" Precision="0" />
+          <NavigationProperty Name="lekarz" Relationship="Self.ref_id_leka" FromRole="rejestracja" ToRole="lekarz" />
+          <NavigationProperty Name="pacjent" Relationship="Self.ref_id_pacj" FromRole="rejestracja" ToRole="pacjent" />
+        </EntityType>
+        <EntityType Name="specjalizacja">
+          <Key>
+            <PropertyRef Name="id_specjalizacji" />
+          </Key>
+          <Property Name="id_specjalizacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa_specjalizacji" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="lekarz" Relationship="Self.ref_id_spec" FromRole="specjalizacja" ToRole="lekarz" />
+        </EntityType>
+        <EntityType Name="uslugi">
+          <Key>
+            <PropertyRef Name="id_uslugi" />
+          </Key>
+          <Property Name="id_uslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa_uslugi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cena_uslugi" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <NavigationProperty Name="karta_pacjenta" Relationship="Self.ref_id_uslu" FromRole="uslugi" ToRole="karta_pacjenta" />
+        </EntityType>
+        <Association Name="ref_kod_chor">
+          <End Role="choroby" Type="Self.choroby" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="choroby">
+              <PropertyRef Name="kod_choroby" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="kod_choroby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_dawk">
+          <End Role="dawka_leku" Type="Self.dawka_leku" Multiplicity="0..1" />
+          <End Role="lek" Type="Self.lek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dawka_leku">
+              <PropertyRef Name="id_dawki" />
+            </Principal>
+            <Dependent Role="lek">
+              <PropertyRef Name="dawka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_jedn">
+          <End Role="jednostka_leku" Type="Self.jednostka_leku" Multiplicity="0..1" />
+          <End Role="dawka_leku" Type="Self.dawka_leku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jednostka_leku">
+              <PropertyRef Name="id_jednostki" />
+            </Principal>
+            <Dependent Role="dawka_leku">
+              <PropertyRef Name="jednostka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_lek">
+          <End Role="lek" Type="Self.lek" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lek">
+              <PropertyRef Name="id_leku" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="id_leku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_leka_karta">
+          <End Role="lekarz" Type="Self.lekarz" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lekarz">
+              <PropertyRef Name="id_lekarza" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="lekarz_prowadzacy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_pacj_karta">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pacjenta" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_uslu">
+          <End Role="uslugi" Type="Self.uslugi" Multiplicity="0..1" />
+          <End Role="karta_pacjenta" Type="Self.karta_pacjenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uslugi">
+              <PropertyRef Name="id_uslugi" />
+            </Principal>
+            <Dependent Role="karta_pacjenta">
+              <PropertyRef Name="wykonane_uslugi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_leka">
+          <End Role="lekarz" Type="Self.lekarz" Multiplicity="0..1" />
+          <End Role="rejestracja" Type="Self.rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lekarz">
+              <PropertyRef Name="id_lekarza" />
+            </Principal>
+            <Dependent Role="rejestracja">
+              <PropertyRef Name="id_lekarza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_spec">
+          <End Role="specjalizacja" Type="Self.specjalizacja" Multiplicity="0..1" />
+          <End Role="lekarz" Type="Self.lekarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="specjalizacja">
+              <PropertyRef Name="id_specjalizacji" />
+            </Principal>
+            <Dependent Role="lekarz">
+              <PropertyRef Name="id_specjalizacji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ref_id_pacj">
+          <End Role="pacjent" Type="Self.pacjent" Multiplicity="0..1" />
+          <End Role="rejestracja" Type="Self.rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacjent">
+              <PropertyRef Name="id_pacjenta" />
+            </Principal>
+            <Dependent Role="rejestracja">
+              <PropertyRef Name="id_pacjenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="clinicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="choroby" EntityType="Self.choroby" />
+          <EntitySet Name="dawka_leku" EntityType="Self.dawka_leku" />
+          <EntitySet Name="jednostka_leku" EntityType="Self.jednostka_leku" />
+          <EntitySet Name="karta_pacjenta" EntityType="Self.karta_pacjenta" />
+          <EntitySet Name="lek" EntityType="Self.lek" />
+          <EntitySet Name="lekarz" EntityType="Self.lekarz" />
+          <EntitySet Name="pacjent" EntityType="Self.pacjent" />
+          <EntitySet Name="rejestracja" EntityType="Self.rejestracja" />
+          <EntitySet Name="specjalizacja" EntityType="Self.specjalizacja" />
+          <EntitySet Name="uslugi" EntityType="Self.uslugi" />
+          <AssociationSet Name="ref_kod_chor" Association="Self.ref_kod_chor">
+            <End Role="choroby" EntitySet="choroby" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_dawk" Association="Self.ref_id_dawk">
+            <End Role="dawka_leku" EntitySet="dawka_leku" />
+            <End Role="lek" EntitySet="lek" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_jedn" Association="Self.ref_id_jedn">
+            <End Role="jednostka_leku" EntitySet="jednostka_leku" />
+            <End Role="dawka_leku" EntitySet="dawka_leku" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_lek" Association="Self.ref_id_lek">
+            <End Role="lek" EntitySet="lek" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_leka_karta" Association="Self.ref_id_leka_karta">
+            <End Role="lekarz" EntitySet="lekarz" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_pacj_karta" Association="Self.ref_id_pacj_karta">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_uslu" Association="Self.ref_id_uslu">
+            <End Role="uslugi" EntitySet="uslugi" />
+            <End Role="karta_pacjenta" EntitySet="karta_pacjenta" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_leka" Association="Self.ref_id_leka">
+            <End Role="lekarz" EntitySet="lekarz" />
+            <End Role="rejestracja" EntitySet="rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_spec" Association="Self.ref_id_spec">
+            <End Role="specjalizacja" EntitySet="specjalizacja" />
+            <End Role="lekarz" EntitySet="lekarz" />
+          </AssociationSet>
+          <AssociationSet Name="ref_id_pacj" Association="Self.ref_id_pacj">
+            <End Role="pacjent" EntitySet="pacjent" />
+            <End Role="rejestracja" EntitySet="rejestracja" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="projekt6ModelStoreContainer" CdmEntityContainer="clinicEntities">
+          <EntitySetMapping Name="choroby">
+            <EntityTypeMapping TypeName="projekt6Model.choroby">
+              <MappingFragment StoreEntitySet="choroby">
+                <ScalarProperty Name="id_choroby" ColumnName="id_choroby" />
+                <ScalarProperty Name="kod_choroby" ColumnName="kod_choroby" />
+                <ScalarProperty Name="nazwa_choroby" ColumnName="nazwa_choroby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dawka_leku">
+            <EntityTypeMapping TypeName="projekt6Model.dawka_leku">
+              <MappingFragment StoreEntitySet="dawka_leku">
+                <ScalarProperty Name="id_dawki" ColumnName="id_dawki" />
+                <ScalarProperty Name="dawka" ColumnName="dawka" />
+                <ScalarProperty Name="jednostka" ColumnName="jednostka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jednostka_leku">
+            <EntityTypeMapping TypeName="projekt6Model.jednostka_leku">
+              <MappingFragment StoreEntitySet="jednostka_leku">
+                <ScalarProperty Name="id_jednostki" ColumnName="id_jednostki" />
+                <ScalarProperty Name="nazwa_jednostki" ColumnName="nazwa_jednostki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="karta_pacjenta">
+            <EntityTypeMapping TypeName="projekt6Model.karta_pacjenta">
+              <MappingFragment StoreEntitySet="karta_pacjenta">
+                <ScalarProperty Name="id_karty" ColumnName="id_karty" />
+                <ScalarProperty Name="id_pacjenta" ColumnName="id_pacjenta" />
+                <ScalarProperty Name="wykonane_uslugi" ColumnName="wykonane_uslugi" />
+                <ScalarProperty Name="kod_choroby" ColumnName="kod_choroby" />
+                <ScalarProperty Name="id_leku" ColumnName="id_leku" />
+                <ScalarProperty Name="lekarz_prowadzacy" ColumnName="lekarz_prowadzacy" />
+                <ScalarProperty Name="diagnoza" ColumnName="diagnoza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lek">
+            <EntityTypeMapping TypeName="projekt6Model.lek">
+              <MappingFragment StoreEntitySet="lek">
+                <ScalarProperty Name="id_leku" ColumnName="id_leku" />
+                <ScalarProperty Name="nazwa_leku" ColumnName="nazwa_leku" />
+                <ScalarProperty Name="dawka" ColumnName="dawka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lekarz">
+            <EntityTypeMapping TypeName="projekt6Model.lekarz">
+              <MappingFragment StoreEntitySet="lekarz">
+                <ScalarProperty Name="id_lekarza" ColumnName="id_lekarza" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="id_specjalizacji" ColumnName="id_specjalizacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacjent">
+            <EntityTypeMapping TypeName="projekt6Model.pacjent">
+              <MappingFragment StoreEntitySet="pacjent">
+                <ScalarProperty Name="id_pacjenta" ColumnName="id_pacjenta" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="nr_lokalu" ColumnName="nr_lokalu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rejestracja">
+            <EntityTypeMapping TypeName="projekt6Model.rejestracja">
+              <MappingFragment StoreEntitySet="rejestracja">
+                <ScalarProperty Name="id_rejestracji" ColumnName="id_rejestracji" />
+                <ScalarProperty Name="id_pacjenta" ColumnName="id_pacjenta" />
+                <ScalarProperty Name="id_lekarza" ColumnName="id_lekarza" />
+                <ScalarProperty Name="data_rejestracji" ColumnName="data_rejestracji" />
+                <ScalarProperty Name="godzina" ColumnName="godzina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="specjalizacja">
+            <EntityTypeMapping TypeName="projekt6Model.specjalizacja">
+              <MappingFragment StoreEntitySet="specjalizacja">
+                <ScalarProperty Name="id_specjalizacji" ColumnName="id_specjalizacji" />
+                <ScalarProperty Name="nazwa_specjalizacji" ColumnName="nazwa_specjalizacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uslugi">
+            <EntityTypeMapping TypeName="projekt6Model.uslugi">
+              <MappingFragment StoreEntitySet="uslugi">
+                <ScalarProperty Name="id_uslugi" ColumnName="id_uslugi" />
+                <ScalarProperty Name="nazwa_uslugi" ColumnName="nazwa_uslugi" />
+                <ScalarProperty Name="cena_uslugi" ColumnName="cena_uslugi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
