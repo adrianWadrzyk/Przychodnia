@@ -19,6 +19,8 @@ namespace Przychodnia
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        clinicEntities context = new clinicEntities();
+        CollectionViewSource patientView;
         public RegisterWindow()
         {
             InitializeComponent();

@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="name_box" HorizontalAlignment="Left" Height="23" Margin="310,138,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="surname_box" HorizontalAlignment="Left" Height="23" Margin="310,166,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="pesel_box" HorizontalAlignment="Left" Height="23" Margin="310,189,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="phone_box" HorizontalAlignment="Left" Height="23" Margin="310,212,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="city_box" HorizontalAlignment="Left" Height="23" Margin="310,235,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="street_box" HorizontalAlignment="Left" Height="23" Margin="310,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="house_num_box" HorizontalAlignment="Left" Height="23" Margin="310,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,257,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="267,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408"/>
+
     </Grid>
 </Window>
