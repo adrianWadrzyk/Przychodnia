@@ -27,6 +27,7 @@ namespace Przychodnia
 
         private void register_the_patient_handler(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             Przychodnia.RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
         }
