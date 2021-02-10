@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="ActualRegisterWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="patients" Margin="400,0,0,0"></DataGrid>
+        <DataGrid x:Name="patients" Margin="255,0,0,238" RenderTransformOrigin="0.5,0.5"></DataGrid>
+        <Button Content="Zarejestruj nowego pacjenta" HorizontalAlignment="Left" Margin="46,316,0,0" VerticalAlignment="Top" Width="161" Click="register"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="46,341,0,0" VerticalAlignment="Top" Width="161" Click="deleteRow"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="46,266,0,0" VerticalAlignment="Top" Width="161" Click="editRow"/>
+        <DataGrid x:Name="edit" Margin="255,243,0,0"></DataGrid>
+        <Button Content="Save editing" HorizontalAlignment="Left" Margin="46,291,0,0" VerticalAlignment="Top" Width="161" Click="saveEditing"/>
     </Grid>
 
 </Window>

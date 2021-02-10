@@ -28,12 +28,13 @@ namespace Przychodnia
         }
         public class PatientRegisteredView
         {
+            public int Id_rejestracji { get; set; }
             public string Imie { get; set; }
             public string Nazwisko { get; set; }
-            public string Imię_doktora { get; set; }
+            public string Imie_doktora { get; set; }
             public string Specyfikacja { get; set; }
-            public string Data { get; set; }
-            public TimeSpan Godzina { get; set; }
+            public string Data_rejestracji { get; set; }
+            public TimeSpan Godzina_przyjęcia { get; set; }
         }
 
         private void getPatients()
@@ -45,14 +46,53 @@ namespace Przychodnia
                           where (r.id_pacjenta == p.id_pacjenta && r.id_lekarza == l.id_lekarza && s.id_specjalizacji == l.id_specjalizacji)
                           select new PatientRegisteredView
                           {
+                              Id_rejestracji = (int)r.id_rejestracji,
                               Imie = p.imie,
                               Nazwisko = p.nazwisko,
-                              Imię_doktora = l.imie,
+                              Imie_doktora = l.imie,
                               Specyfikacja = s.nazwa_specjalizacji,
-                              Data = r.data_rejestracji.ToString(),
-                              Godzina = r.godzina
+                              Data_rejestracji = r.data_rejestracji.ToString(),
+                              Godzina_przyjęcia = r.godzina
                           };
             this.patients.ItemsSource = results.ToList();
+        }
+
+        private void register(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.RegisterWindow register = new RegisterWindow();
+            this.Close();
+            register.Show();
+        }
+
+        private void deleteRow(object sender, RoutedEventArgs e)
+        {
+            int register_id = (patients.SelectedItem as PatientRegisteredView).Id_rejestracji;
+            var x = (from r in db.rejestracja where r.id_rejestracji == register_id select r).SingleOrDefault();
+            db.rejestracja.Remove(x);
+            db.SaveChanges();
+            getPatients();
+        }
+
+        private void editRow(object sender, RoutedEventArgs e)
+        {
+            var register = patients.SelectedItem as PatientRegisteredView;
+            var data = from r in db.rejestracja where r.id_rejestracji == register.Id_rejestracji select new PatientRegisteredView
+            {
+                Id_rejestracji = (int)r.id_rejestracji,
+                Data_rejestracji = r.data_rejestracji.ToString(),
+                Godzina_przyjęcia = r.godzina
+            };
+            edit.ItemsSource = data.ToList();
+        }
+
+        private void saveEditing(object sender, RoutedEventArgs e)
+        {
+            var toEdit = edit.SelectedItem as PatientRegisteredView;
+            var result = (from r in db.rejestracja where r.id_rejestracji == toEdit.Id_rejestracji select r).Single();
+            result.data_rejestracji =DateTime.Parse(toEdit.Data_rejestracji);
+            result.godzina = toEdit.Godzina_przyjęcia;
+            db.SaveChanges();
+            getPatients();
         }
     }
  
