@@ -31,5 +31,7 @@
         <ComboBox x:Name="doctors" HorizontalAlignment="Left" Margin="471,142,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="minutes" HorizontalAlignment="Left" Margin="68,161,0,0" VerticalAlignment="Top" Width="57" Grid.RowSpan="2"/>
         <ComboBox x:Name="hour" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="53" Grid.RowSpan="2"/>
+
     </Grid>
+
 </Window>

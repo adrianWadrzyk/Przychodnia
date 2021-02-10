@@ -45,5 +45,12 @@ namespace Przychodnia
             this.Hide();
             actualRegister.Show();
         }
+
+        private void Kart_patient(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.PatientCard patientCard = new PatientCard();
+            this.Hide();
+            patientCard.Show();
+        }
     }
 }
