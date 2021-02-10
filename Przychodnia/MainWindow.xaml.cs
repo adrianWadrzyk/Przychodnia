@@ -38,5 +38,12 @@ namespace Przychodnia
             this.Hide();
             allPatientWindow.Show();
         }
+
+        private void Actual_register(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.ActualRegisterWindow actualRegister = new ActualRegisterWindow();
+            this.Hide();
+            actualRegister.Show();
+        }
     }
 }

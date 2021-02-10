@@ -33,6 +33,11 @@ namespace Przychodnia
                 MessageBox.Show("Wybierz datę wizyty!");
                 return;
             }
+            if(registerDate.SelectedDate < DateTime.Now)
+            {
+                MessageBox.Show("Nie można zarejestrować na wcześniejsza date!");
+                return;
+            }
             if (pesel_box.Text.Length != 11)
             {
                 MessageBox.Show("Pesel musi zawierać 11 liczb!");
@@ -48,7 +53,10 @@ namespace Przychodnia
                 MessageBox.Show("Musisz wybrać doktora prowadzącego!");
                 return;
             }
-
+            if(hour.SelectedIndex == -1 || minutes.SelectedIndex == -1)
+            {
+                MessageBox.Show("Prosze podać godzinę i minutę!");
+            }
             try
             {
                decimal.Parse(pesel_box.Text);
@@ -84,7 +92,7 @@ namespace Przychodnia
                 id_pacjenta = pacjent.id_pacjenta,
                 id_lekarza = doctors.SelectedIndex+1,
                 data_rejestracji = registerDate.SelectedDate.Value,
-                godzina = new TimeSpan(10, 00, 11)
+                godzina = new TimeSpan(hour.SelectedIndex+1, minutes.SelectedIndex+1, 00)
             };
 
             try
@@ -96,15 +104,13 @@ namespace Przychodnia
                 MessageBox.Show("Ups! Coś poszło nie tak!");
                 return;
             }
-                
-             context.SaveChanges();
+            closeForm();
+            context.SaveChanges();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            this.Hide();
-            main.Show();
+            closeForm();
         }
 
         private void getDoctors()
@@ -112,12 +118,29 @@ namespace Przychodnia
             var results = from row in context.lekarz select row;
             foreach(var x in results)
                 doctors.Items.Add(x.imie);
-            MessageBox.Show("Work");
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            this.fillCombobox();
             this.getDoctors();
+        }
+
+        private void fillCombobox()
+        {
+            for(var i=0; i<60;i++)
+            {
+                if(i>8 && i<=20)
+                hour.Items.Add(i);
+                minutes.Items.Add(i);
+            }
+        }
+
+        private void closeForm()
+        {
+            MainWindow main = new MainWindow();
+            this.Hide();
+            main.Show();
         }
     }
 }
