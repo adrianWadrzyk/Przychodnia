@@ -23,10 +23,6 @@ namespace Przychodnia
         public NewCartWindow()
         {
          InitializeComponent();
-         getDoctors();
-         getCure();
-         getSickCode();
-         getServices();
     }
 
     private void find_Click(object sender, RoutedEventArgs e)
@@ -45,9 +41,14 @@ namespace Przychodnia
                     this.patient_id.Text =  result.id_pacjenta.ToString();
                 }catch
                 {
-                    MessageBox.Show("Ups! Coś poszło nie tak!");
+                    MessageBox.Show("Nie znaleziono takiego pacjenta");
                     return;
                 }
+
+                getDoctors();
+                getCure();
+                getSickCode();
+                getServices();
             }
         }
         private void getDoctors()

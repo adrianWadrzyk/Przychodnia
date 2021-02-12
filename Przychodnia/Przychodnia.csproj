@@ -67,6 +67,9 @@
     <Compile Include="ActualRegisterWindow.xaml.cs">
       <DependentUpon>ActualRegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddDoctorWindow.xaml.cs">
+      <DependentUpon>AddDoctorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllPatientWindow.xaml.cs">
       <DependentUpon>AllPatientWindow.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Page Include="ActualRegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDoctorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
