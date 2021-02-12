@@ -11,7 +11,13 @@
         <ComboBox x:Name="cure" HorizontalAlignment="Left" Margin="442,150,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="442,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="docktor" HorizontalAlignment="Left" Margin="442,177,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="diagnosis" HorizontalAlignment="Left" Height="115" Margin="405,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.085,-0.268"/>
+        <TextBox x:Name="diagnosis" HorizontalAlignment="Left" Height="115" Margin="405,249,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.085,-0.268"/>
+        <Button x:Name="find" Content="Button" HorizontalAlignment="Left" Margin="567,94,0,0" VerticalAlignment="Top" Width="75" Click="find_Click"/>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="353,101,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="surname" HorizontalAlignment="Left" Margin="353,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.066"/>
+        <TextBlock x:Name="patient_id" HorizontalAlignment="Left" Margin="353,145,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button Content="Add card" HorizontalAlignment="Left" Margin="487,369,0,0" VerticalAlignment="Top" Width="75" Click="add_newCard"/>
+        <ComboBox x:Name="services" HorizontalAlignment="Left" Margin="442,204,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
