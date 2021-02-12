@@ -38,18 +38,47 @@ namespace Przychodnia
                 MessageBox.Show("Podaj nazwisko lekarza!");
                 return;
             }
-
-            if(specializations.SelectedIndex == -1)
+            if (add_new.IsChecked ?? false)
             {
-                MessageBox.Show("Musisz wybrać specjalizacje!");
+                if (specializations.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Musisz wybrać specjalizacje!");
+                    return;
+                }
+            }
+
+            try
+            {
+                lekarz lekarz = new lekarz()
+                {
+                    imie = name.Text,
+                    nazwisko = surname.Text,
+                    id_specjalizacji = specializations.SelectedIndex+1
+                };
+                db.lekarz.Add(lekarz);
+                db.SaveChanges();
+            }catch
+            {
+                MessageBox.Show("Ups! Coś poszło nie tak");
                 return;
             }
+
+            MessageBox.Show("Dodano nowego lekarza!");
+            this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+
         }
 
         private void getSpecializations()
         {
             var results = from r in db.specjalizacja select r.nazwa_specjalizacji;
             specializations.ItemsSource = results;
+        }
+
+        private void checkState(object sender, RoutedEventArgs e)
+        {
+            new_specjalization.IsEnabled = ((bool)add_new.IsChecked);
         }
     }
 }
