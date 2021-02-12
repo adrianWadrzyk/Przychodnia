@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="NewCartWindow" Height="450" Width="800">
     <Grid>
-        
+        <ComboBox x:Name="sick_code" HorizontalAlignment="Left" Margin="442,123,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cure" HorizontalAlignment="Left" Margin="442,150,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="442,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="docktor" HorizontalAlignment="Left" Margin="442,177,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="diagnosis" HorizontalAlignment="Left" Height="115" Margin="405,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.085,-0.268"/>
+
     </Grid>
 </Window>
