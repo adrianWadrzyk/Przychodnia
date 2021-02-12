@@ -66,9 +66,18 @@ namespace Przychodnia
 
         private void deleteRow(object sender, RoutedEventArgs e)
         {
-            int register_id = (patients.SelectedItem as PatientRegisteredView).Id_rejestracji;
-            var x = (from r in db.rejestracja where r.id_rejestracji == register_id select r).SingleOrDefault();
-            db.rejestracja.Remove(x);
+            try
+            {
+              int register_id = (patients.SelectedItem as PatientRegisteredView).Id_rejestracji;
+              var x = (from r in db.rejestracja where r.id_rejestracji == register_id select r).SingleOrDefault();
+              db.rejestracja.Remove(x);
+            }
+            catch
+            {
+                MessageBox.Show("Wybierz element do usunięcia!");
+                return;
+            }
+            edit.ItemsSource = null;
             db.SaveChanges();
             getPatients();
         }
@@ -82,7 +91,15 @@ namespace Przychodnia
                 Data_rejestracji = r.data_rejestracji.ToString(),
                 Godzina_przyjęcia = r.godzina
             };
-            edit.ItemsSource = data.ToList();
+            try
+            {
+                edit.ItemsSource = data.ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Wybierz element do edycji!");
+                return;
+            }
         }
 
         private void saveEditing(object sender, RoutedEventArgs e)
@@ -93,6 +110,13 @@ namespace Przychodnia
             result.godzina = toEdit.Godzina_przyjęcia;
             db.SaveChanges();
             getPatients();
+        }
+
+        private void backToMain(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Hide();
+            mainWindow.Show();
         }
     }
  

@@ -13,6 +13,7 @@
         <Button Content="Edit" HorizontalAlignment="Left" Margin="46,266,0,0" VerticalAlignment="Top" Width="161" Click="editRow"/>
         <DataGrid x:Name="edit" Margin="255,243,0,0"></DataGrid>
         <Button Content="Save editing" HorizontalAlignment="Left" Margin="46,291,0,0" VerticalAlignment="Top" Width="161" Click="saveEditing"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="46,366,0,0" VerticalAlignment="Top" Width="161" Click="backToMain"/>
     </Grid>
 
 </Window>

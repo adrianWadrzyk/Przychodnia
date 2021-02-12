@@ -11,6 +11,7 @@
         <Button Content="All patient show" HorizontalAlignment="Left" Margin="329,42,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="All_patientShow"/>
         <Button Content="Actual register patients" HorizontalAlignment="Left" Margin="190,42,0,0" VerticalAlignment="Top" Width="134" Height="46" Click="Actual_register"/>
         <Button Content="Card Patient" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Kart_patient"/>
+        <Button Content="Create new card" HorizontalAlignment="Left" Margin="190,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="create_new_cart"/>
 
     </Grid>
 </Window>
