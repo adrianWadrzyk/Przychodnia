@@ -52,5 +52,12 @@ namespace Przychodnia
             this.Hide();
             patientCard.Show();
         }
+
+        private void create_new_cart(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.NewCartWindow newCartWindow = new NewCartWindow();
+            this.Close();
+            newCartWindow.Show();
+        }
     }
 }
