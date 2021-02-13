@@ -19,7 +19,7 @@ namespace Przychodnia
     /// </summary>
     public partial class NewCartWindow : Window
     {
-        clinicEntities db = new clinicEntities();
+        readonly clinicEntities db = new clinicEntities();
         public NewCartWindow()
         {
          InitializeComponent();
@@ -45,34 +45,34 @@ namespace Przychodnia
                     return;
                 }
 
-                getDoctors();
-                getCure();
-                getSickCode();
-                getServices();
+                GetDoctors();
+                GetCure();
+                GetSickCode();
+                GetServices();
             }
         }
-        private void getDoctors()
+        private void GetDoctors()
         {
             var results = from row in db.lekarz select row;
             foreach (var x in results)
                 docktor.Items.Add(x.imie);
         }
 
-        private void getSickCode()
+        private void GetSickCode()
         {
             var results = from row in db.choroby select row;
             foreach (var x in results)
                 sick_code.Items.Add(x.kod_choroby + " ("+ x.nazwa_choroby + ")");
         }
 
-        private void getCure()
+        private void GetCure()
         {
             var results = from row in db.lek select row;
             foreach (var x in results)
                 cure.Items.Add(x.nazwa_leku);
         }
 
-        private void getServices()
+        private void GetServices()
         {
             var results = from row in db.uslugi select row;
             foreach (var x in results)

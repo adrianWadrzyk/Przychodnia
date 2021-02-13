@@ -19,12 +19,12 @@ namespace Przychodnia
     /// </summary>
     public partial class ActualRegisterWindow : Window
     {
-        clinicEntities db = new clinicEntities();
+        readonly clinicEntities db = new clinicEntities();
 
         public ActualRegisterWindow()
         {
             InitializeComponent();
-            getPatients();
+            GetPatients();
         }
         public class PatientRegisteredView
         {
@@ -37,7 +37,7 @@ namespace Przychodnia
             public TimeSpan Godzina_przyjęcia { get; set; }
         }
 
-        private void getPatients()
+        private void GetPatients()
         {
             var results = from r in db.rejestracja
                           from p in db.pacjent
@@ -79,7 +79,7 @@ namespace Przychodnia
             }
             edit.ItemsSource = null;
             db.SaveChanges();
-            getPatients();
+            GetPatients();
         }
 
         private void EditRow(object sender, RoutedEventArgs e)
@@ -109,7 +109,7 @@ namespace Przychodnia
             result.data_rejestracji =DateTime.Parse(toEdit.Data_rejestracji);
             result.godzina = toEdit.Godzina_przyjęcia;
             db.SaveChanges();
-            getPatients();
+            GetPatients();
         }
 
         private void BackToMain(object sender, RoutedEventArgs e)

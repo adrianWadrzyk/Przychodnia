@@ -19,7 +19,7 @@ namespace Przychodnia
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        clinicEntities context = new clinicEntities();
+        readonly clinicEntities db = new clinicEntities();
         public RegisterWindow()
         {
             InitializeComponent();
@@ -97,36 +97,36 @@ namespace Przychodnia
 
             try
             {
-                context.pacjent.Add(pacjent);
-                context.rejestracja.Add(rejestration);
+                db.pacjent.Add(pacjent);
+                db.rejestracja.Add(rejestration);
             }catch
             {
                 MessageBox.Show("Ups! Coś poszło nie tak!");
                 return;
             }
-            closeForm();
-            context.SaveChanges();
+            CloseForm();
+            db.SaveChanges();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            closeForm();
+            CloseForm();
         }
 
-        private void getDoctors()
+        private void GetDoctors()
         {
-            var results = from row in context.lekarz select row;
+            var results = from row in db.lekarz select row;
             foreach(var x in results)
                 doctors.Items.Add(x.imie);
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            this.fillCombobox();
-            this.getDoctors();
+            this.FillCombobox();
+            this.GetDoctors();
         }
 
-        private void fillCombobox()
+        private void FillCombobox()
         {
             for(var i=0; i<60;i++)
             {
@@ -136,7 +136,7 @@ namespace Przychodnia
             }
         }
 
-        private void closeForm()
+        private void CloseForm()
         {
             LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
             this.Hide();

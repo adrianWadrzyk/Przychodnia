@@ -20,8 +20,8 @@ namespace Przychodnia
     /// </summary>
     public partial class AllPatientWindow : Window
     {
-        clinicEntities context = new clinicEntities();
-        CollectionViewSource patientViewSource;
+        readonly clinicEntities db = new clinicEntities();
+        readonly CollectionViewSource patientViewSource;
         public AllPatientWindow()
         {
             InitializeComponent();
@@ -31,8 +31,8 @@ namespace Przychodnia
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            context.pacjent.Load();
-            patientViewSource.Source = context.pacjent.Local;
+            db.pacjent.Load();
+            patientViewSource.Source = db.pacjent.Local;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

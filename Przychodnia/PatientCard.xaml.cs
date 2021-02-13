@@ -20,7 +20,7 @@ namespace Przychodnia
 
     public partial class PatientCard : Window
     {
-        clinicEntities db = new clinicEntities();
+        readonly clinicEntities db = new clinicEntities();
         public PatientCard()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace Przychodnia
             public string Lekarz { get; set; }
         }
 
-        private void getPatients(string PESEL)
+        private void GetPatients(string PESEL)
         {
 
             var patient = from p in db.pacjent
@@ -55,7 +55,7 @@ namespace Przychodnia
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            getPatients(PESEL.Text.Trim());
+            GetPatients(PESEL.Text.Trim());
         }
     }
 }

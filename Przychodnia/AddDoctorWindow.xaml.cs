@@ -19,11 +19,11 @@ namespace Przychodnia
     /// </summary>
     public partial class AddDoctorWindow : Window
     {
-        clinicEntities db = new clinicEntities();
+        readonly clinicEntities db = new clinicEntities();
         public AddDoctorWindow()
         {
             InitializeComponent();
-            getSpecializations();
+            GetSpecializations();
         }
 
         private void AddDoctor(object sender, RoutedEventArgs e)
@@ -89,7 +89,7 @@ namespace Przychodnia
 
         }
 
-        private void getSpecializations()
+        private void GetSpecializations()
         {
             var results = from r in db.specjalizacja select r.nazwa_specjalizacji;
             foreach (var x in results)
