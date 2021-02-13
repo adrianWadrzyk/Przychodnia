@@ -23,5 +23,19 @@ namespace Przychodnia
         {
             InitializeComponent();
         }
+
+        private void Card_patient(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.PatientCard patientCard = new PatientCard();
+            this.Hide();
+            patientCard.Show();
+        }
+
+        private void Create_new_card(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.NewCartWindow newCartWindow = new NewCartWindow();
+            this.Close();
+            newCartWindow.Show();
+        }
     }
 }

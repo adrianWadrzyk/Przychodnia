@@ -46,20 +46,6 @@ namespace Przychodnia
             actualRegister.Show();
         }
 
-        private void Kart_patient(object sender, RoutedEventArgs e)
-        {
-            Przychodnia.PatientCard patientCard = new PatientCard();
-            this.Hide();
-            patientCard.Show();
-        }
-
-        private void create_new_cart(object sender, RoutedEventArgs e)
-        {
-            Przychodnia.NewCartWindow newCartWindow = new NewCartWindow();
-            this.Close();
-            newCartWindow.Show();
-        }
-
         private void hirind_doctor(object sender, RoutedEventArgs e)
         {
             AddDoctorWindow addDoctorWindow = new AddDoctorWindow();
