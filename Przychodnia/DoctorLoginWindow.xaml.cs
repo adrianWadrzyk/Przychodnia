@@ -47,7 +47,9 @@ namespace Przychodnia
 
         private void MenageSicks(object sender, RoutedEventArgs e)
         {
-
+            MenageSicksWindow menageSicks = new MenageSicksWindow();
+            this.Close();
+            menageSicks.Show();
         }
     }
 }
