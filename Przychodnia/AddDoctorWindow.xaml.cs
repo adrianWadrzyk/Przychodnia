@@ -38,12 +38,18 @@ namespace Przychodnia
                 MessageBox.Show("Podaj nazwisko lekarza!");
                 return;
             }
-            if (add_new.IsChecked ?? false)
+            if (add_new.IsChecked == false)
             {
                 if (specializations.SelectedIndex == -1)
                 {
                     MessageBox.Show("Musisz wybrać specjalizacje!");
                     return;
+                }
+            }else
+            {
+                if(new_specjalization.Text.Length < 1)
+                {
+                    MessageBox.Show("Musisz wpisac nową specjalizację!");
                 }
             }
 
@@ -53,8 +59,21 @@ namespace Przychodnia
                 {
                     imie = name.Text,
                     nazwisko = surname.Text,
-                    id_specjalizacji = specializations.SelectedIndex+1
+                    id_specjalizacji = specializations.SelectedIndex + 1
                 };
+
+                if (add_new.IsChecked ?? true)
+                {
+                    specjalizacja specjalizacja = new specjalizacja()
+                    {
+                        nazwa_specjalizacji = new_specjalization.Text
+                    };
+
+                    db.specjalizacja.Add(specjalizacja);
+                    db.SaveChanges();
+                    lekarz.id_specjalizacji = (from r in db.specjalizacja where r.nazwa_specjalizacji == new_specjalization.Text select r.id_specjalizacji).FirstOrDefault();
+                };
+        
                 db.lekarz.Add(lekarz);
                 db.SaveChanges();
             }catch
@@ -64,8 +83,8 @@ namespace Przychodnia
             }
 
             MessageBox.Show("Dodano nowego lekarza!");
-            this.Close();
             MainWindow mainWindow = new MainWindow();
+            this.Close();
             mainWindow.Show();
 
         }
@@ -73,12 +92,20 @@ namespace Przychodnia
         private void getSpecializations()
         {
             var results = from r in db.specjalizacja select r.nazwa_specjalizacji;
-            specializations.ItemsSource = results;
+            foreach (var x in results)
+                specializations.Items.Add(x);
         }
 
         private void checkState(object sender, RoutedEventArgs e)
         {
-            new_specjalization.IsEnabled = ((bool)add_new.IsChecked);
+            new_specjalization.IsEnabled = true;
+            specializations.IsEnabled = false;
+        }
+
+        private void setEnabledNewSpecjalization(object sender, RoutedEventArgs e)
+        {
+            new_specjalization.IsEnabled = false; 
+            specializations.IsEnabled = true;
         }
     }
 }

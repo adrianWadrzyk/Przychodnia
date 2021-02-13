@@ -59,5 +59,12 @@ namespace Przychodnia
             this.Close();
             newCartWindow.Show();
         }
+
+        private void hirind_doctor(object sender, RoutedEventArgs e)
+        {
+            AddDoctorWindow addDoctorWindow = new AddDoctorWindow();
+            this.Close();
+            addDoctorWindow.Show();
+        }
     }
 }

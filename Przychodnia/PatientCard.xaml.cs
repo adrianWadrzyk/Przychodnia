@@ -37,19 +37,20 @@ namespace Przychodnia
         private void getPatients(string PESEL)
         {
 
-            var results = from k in db.karta_pacjenta
-                          from p in db.pacjent
-                          from l in db.lekarz
-                          from c in db.choroby
-                          where (k.id_pacjenta == 1 && l.id_lekarza == k.lekarz_prowadzacy && c.kod_choroby == k.kod_choroby )
-                          select new PatientsCard
-                          {
-                              Imie = p.imie,
-                              Nazwisko = p.nazwisko,
-                              Choroba = c.nazwa_choroby,
-                              Lekarz = l.imie
-                          };
-            this.cards.ItemsSource = results.ToList();
+            var patient = from p in db.pacjent
+                          where p.PESEL == PESEL
+                          select p;
+
+            var card = from x in patient
+                       from c in db.karta_pacjenta
+                       where x.id_pacjenta == c.id_pacjenta
+                       select new PatientsCard
+                       {
+                           Imie = x.imie,
+                           Nazwisko = x.nazwisko,
+                       };
+
+            this.cards.ItemsSource = card.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
