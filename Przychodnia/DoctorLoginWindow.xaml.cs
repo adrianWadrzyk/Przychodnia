@@ -37,5 +37,12 @@ namespace Przychodnia
             this.Close();
             newCartWindow.Show();
         }
+
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            this.Close();
+            loginWindow.Show();
+        }
     }
 }
