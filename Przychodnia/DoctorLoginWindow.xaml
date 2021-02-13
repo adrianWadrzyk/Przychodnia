@@ -10,5 +10,6 @@
         <Button Content="Karty pacjentów" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Card_patient"/>
         <Button Content="Utwórz nową kartę" HorizontalAlignment="Left" Margin="190,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Create_new_card"/>
         <Button x:Name="logout" Content="Wyloguj" HorizontalAlignment="Left" Margin="647,10,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Logout"/>
+        <Button Content="Zarządzaj chorobami" HorizontalAlignment="Left" Margin="330,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="MenageSicks"/>
     </Grid>
 </Window>

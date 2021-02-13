@@ -44,5 +44,10 @@ namespace Przychodnia
             this.Close();
             loginWindow.Show();
         }
+
+        private void MenageSicks(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
