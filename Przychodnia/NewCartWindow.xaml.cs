@@ -44,11 +44,16 @@ namespace Przychodnia
                     MessageBox.Show("Nie znaleziono takiego pacjenta");
                     return;
                 }
-
                 GetDoctors();
                 GetCure();
                 GetSickCode();
                 GetServices();
+                sick_code.IsEnabled = true;
+                cure.IsEnabled = true;
+                docktor.IsEnabled = true;
+                services.IsEnabled = true;
+                diagnosis.IsEnabled = true;
+                add_card.IsEnabled = true;
             }
         }
         private void GetDoctors()
@@ -120,12 +125,19 @@ namespace Przychodnia
                 };
                 db.karta_pacjenta.Add(karta);
                 db.SaveChanges();
-            }catch
+            } catch
             {
                 MessageBox.Show("Ups! Coś poszlo nie tak!");
                 return;
             }
             MessageBox.Show("Karta pacjenta została utworzona!");
+            DoctorLoginWindow doctorLogin = new DoctorLoginWindow();
+            this.Close();
+            doctorLogin.Show();
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
             DoctorLoginWindow doctorLogin = new DoctorLoginWindow();
             this.Close();
             doctorLogin.Show();

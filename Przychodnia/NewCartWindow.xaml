@@ -7,22 +7,23 @@
         mc:Ignorable="d"
         Title="NewCartWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="sick_code" HorizontalAlignment="Left" Margin="442,123,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cure" HorizontalAlignment="Left" Margin="442,150,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="442,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="docktor" HorizontalAlignment="Left" Margin="442,177,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="diagnosis" HorizontalAlignment="Left" Height="115" Margin="405,249,0,0" TextWrapping="Wrap" Text="Diagnoza" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.085,-0.268"/>
-        <Button x:Name="find" Content="Button" HorizontalAlignment="Left" Margin="567,97,0,0" VerticalAlignment="Top" Width="75" Click="Find_Click"/>
-        <TextBlock x:Name="PESEL_textBlock" HorizontalAlignment="Left" Margin="394,101,0,0" TextWrapping="Wrap" Text="Pesel" VerticalAlignment="Top" RenderTransformOrigin="1.576,0.131"/>
-        <TextBlock x:Name="sick_codeTextBlock" HorizontalAlignment="Left" Margin="360,129,0,0" TextWrapping="Wrap" Text="Kod choroby" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.066"/>
-        <TextBlock x:Name="cure_nameTextBlock" HorizontalAlignment="Left" Margin="360,156,0,0" TextWrapping="Wrap" Text="Nazwa leku" VerticalAlignment="Top"/>
-        <Button x:Name="add_card" Content="Dodaj kartę" HorizontalAlignment="Left" Margin="487,369,0,0" VerticalAlignment="Top" Width="75" Click="Add_newCard"/>
-        <ComboBox x:Name="services" HorizontalAlignment="Left" Margin="442,204,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="doctor_TextBox" HorizontalAlignment="Left" Margin="337,177,0,0" TextWrapping="Wrap" Text="Lekarz prowadzący" VerticalAlignment="Top"/>
-        <TextBlock x:Name="services_textBlock" HorizontalAlignment="Left" Margin="337,204,0,0" TextWrapping="Wrap" Text="Wykonana usługa" VerticalAlignment="Top"/>
-        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="567,123,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="surname" HorizontalAlignment="Left" Margin="567,144,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="patient_id" HorizontalAlignment="Left" Margin="579,165,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="-0.164,0.422"/>
+        <ComboBox x:Name="sick_code" HorizontalAlignment="Left" Margin="171,132,0,0" VerticalAlignment="Top" Width="120" IsEnabled="false"/>
+        <ComboBox x:Name="cure" HorizontalAlignment="Left" Margin="171,159,0,0" VerticalAlignment="Top" Width="120" IsEnabled="false"/>
+        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="368,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
+        <ComboBox x:Name="docktor" HorizontalAlignment="Left" Margin="171,186,0,0" VerticalAlignment="Top" Width="120" IsEnabled="false"/>
+        <TextBox x:Name="diagnosis" HorizontalAlignment="Left" Height="115" Margin="34,240,0,0" TextWrapping="Wrap" Text="Diagnoza" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.085,-0.268" IsEnabled="false"/>
+        <Button x:Name="find" Content="Znajdź pacjenta" HorizontalAlignment="Left" Margin="368,167,0,0" VerticalAlignment="Top" Width="75" Click="Find_Click"/>
+        <TextBlock x:Name="PESEL_textBlock" HorizontalAlignment="Left" Margin="325,143,0,0" TextWrapping="Wrap" Text="Pesel" VerticalAlignment="Top" RenderTransformOrigin="1.576,0.131"/>
+        <TextBlock x:Name="sick_codeTextBlock" HorizontalAlignment="Left" Margin="89,138,0,0" TextWrapping="Wrap" Text="Kod choroby" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.066"/>
+        <TextBlock x:Name="cure_nameTextBlock" HorizontalAlignment="Left" Margin="89,165,0,0" TextWrapping="Wrap" Text="Nazwa leku" VerticalAlignment="Top"/>
+        <Button x:Name="add_card" Content="Dodaj kartę" HorizontalAlignment="Left" Margin="134,360,0,0" VerticalAlignment="Top" Width="75" Click="Add_newCard" IsEnabled="False"/>
+        <ComboBox x:Name="services" HorizontalAlignment="Left" Margin="171,213,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBlock x:Name="doctor_TextBox" HorizontalAlignment="Left" Margin="66,186,0,0" TextWrapping="Wrap" Text="Lekarz prowadzący" VerticalAlignment="Top"/>
+        <TextBlock x:Name="services_textBlock" HorizontalAlignment="Left" Margin="66,213,0,0" TextWrapping="Wrap" Text="Wykonana usługa" VerticalAlignment="Top"/>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="368,199,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top"/>
+        <TextBlock x:Name="surname" HorizontalAlignment="Left" Margin="368,220,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
+        <TextBlock x:Name="patient_id" HorizontalAlignment="Left" Margin="368,240,0,0" TextWrapping="Wrap" Text="ID pacjenta" VerticalAlignment="Top" RenderTransformOrigin="-0.164,0.422"/>
+        <Button Content="Anuluj" HorizontalAlignment="Left" Margin="228,360,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
 
     </Grid>
 </Window>

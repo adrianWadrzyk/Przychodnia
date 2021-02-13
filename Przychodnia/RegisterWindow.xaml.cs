@@ -104,6 +104,7 @@ namespace Przychodnia
                 MessageBox.Show("Ups! Coś poszło nie tak!");
                 return;
             }
+            MessageBox.Show("Zarejestrowano pacjenta!");
             CloseForm();
             db.SaveChanges();
         }
