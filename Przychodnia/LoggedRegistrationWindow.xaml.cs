@@ -23,5 +23,31 @@ namespace Przychodnia
         {
             InitializeComponent();
         }
+        private void Register_the_patient_handler(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Przychodnia.RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+        }
+
+        private void All_patientShow(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.AllPatientWindow allPatientWindow = new AllPatientWindow();
+            this.Hide();
+            allPatientWindow.Show();
+        }
+
+        private void Actual_register(object sender, RoutedEventArgs e)
+        {
+            Przychodnia.ActualRegisterWindow actualRegister = new ActualRegisterWindow();
+            this.Hide();
+            actualRegister.Show();
+        }
+        private void Hiring_doctor(object sender, RoutedEventArgs e)
+        {
+            AddDoctorWindow addDoctorWindow = new AddDoctorWindow();
+            this.Close();
+            addDoctorWindow.Show();
+        }
     }
 }

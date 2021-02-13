@@ -138,9 +138,9 @@ namespace Przychodnia
 
         private void closeForm()
         {
-            MainWindow main = new MainWindow();
+            LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
             this.Hide();
-            main.Show();
+            loggedRegistration.Show();
         }
     }
 }

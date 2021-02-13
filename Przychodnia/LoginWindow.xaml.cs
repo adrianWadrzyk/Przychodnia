@@ -38,10 +38,14 @@ namespace Przychodnia
             }
             if(login.Text == "doc" && password.Text == "cod")
             {
-
+                DoctorLoginWindow doctorLoginWindow = new DoctorLoginWindow();
+                this.Close();
+                doctorLoginWindow.Show();
             } else if(login.Text =="rejestracja" && password.Text == "haslo")
             {
-
+                LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
+                this.Close();
+                loggedRegistration.Show();
             }else
             {
                 MessageBox.Show("Podałeś błędne dane");

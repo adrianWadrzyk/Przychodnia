@@ -83,9 +83,9 @@ namespace Przychodnia
             }
 
             MessageBox.Show("Dodano nowego lekarza!");
-            MainWindow mainWindow = new MainWindow();
+            LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
             this.Close();
-            mainWindow.Show();
+            loggedRegistration.Show();
 
         }
 

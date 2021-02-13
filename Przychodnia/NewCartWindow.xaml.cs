@@ -126,9 +126,9 @@ namespace Przychodnia
                 return;
             }
             MessageBox.Show("Karta pacjenta została utworzona!");
-            MainWindow mainWindow = new MainWindow();
+            DoctorLoginWindow doctorLogin = new DoctorLoginWindow();
             this.Close();
-            mainWindow.Show();
+            doctorLogin.Show();
         }
     }
 

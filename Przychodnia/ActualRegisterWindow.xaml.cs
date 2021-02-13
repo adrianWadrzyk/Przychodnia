@@ -114,9 +114,9 @@ namespace Przychodnia
 
         private void backToMain(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
             this.Hide();
-            mainWindow.Show();
+            loggedRegistration.Show();
         }
     }
  

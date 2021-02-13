@@ -42,9 +42,9 @@ namespace Przychodnia
 
         private void Close(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
             this.Close();
-            mainWindow.Show();
+            loggedRegistration.Show();
         }
     }
 }
