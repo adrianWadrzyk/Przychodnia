@@ -13,7 +13,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="88,149,0,0" TextWrapping="Wrap" Text="Nazwa choroby" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="88,122,0,0" TextWrapping="Wrap" Text="Kod choroby" VerticalAlignment="Top" Height="13" Width="82"/>
         <ComboBox x:Name="sicks_list" HorizontalAlignment="Left" Margin="427,122,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EnableDeleteButton"/>
-        <Button x:Name="delete_sick" Content="Usuń chorobę" HorizontalAlignment="Left" Margin="445,177,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Delete"/>
+        <Button x:Name="delete_sick" Content="Usuń chorobę" HorizontalAlignment="Left" Margin="449,149,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Delete"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="325,252,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
 
     </Grid>
 </Window>

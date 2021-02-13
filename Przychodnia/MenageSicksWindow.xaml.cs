@@ -89,5 +89,12 @@ namespace Przychodnia
             doctorLogin.Show();
            
         }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            DoctorLoginWindow doctorLogin = new DoctorLoginWindow();
+            this.Close();
+            doctorLogin.Show();
+        }
     }
 }

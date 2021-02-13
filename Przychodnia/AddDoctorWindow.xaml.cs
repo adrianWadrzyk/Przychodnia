@@ -107,5 +107,12 @@ namespace Przychodnia
             new_specjalization.IsEnabled = false; 
             specializations.IsEnabled = true;
         }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
+            this.Close();
+            loggedRegistration.Show();
+        }
     }
 }

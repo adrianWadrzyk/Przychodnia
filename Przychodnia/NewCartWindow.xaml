@@ -9,7 +9,7 @@
     <Grid>
         <ComboBox x:Name="sick_code" HorizontalAlignment="Left" Margin="171,132,0,0" VerticalAlignment="Top" Width="120" IsEnabled="false"/>
         <ComboBox x:Name="cure" HorizontalAlignment="Left" Margin="171,159,0,0" VerticalAlignment="Top" Width="120" IsEnabled="false"/>
-        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="368,139,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="368,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"/>
         <ComboBox x:Name="docktor" HorizontalAlignment="Left" Margin="171,186,0,0" VerticalAlignment="Top" Width="120" IsEnabled="false"/>
         <TextBox x:Name="diagnosis" HorizontalAlignment="Left" Height="115" Margin="34,240,0,0" TextWrapping="Wrap" Text="Diagnoza" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.085,-0.268" IsEnabled="false"/>
         <Button x:Name="find" Content="Znajdź pacjenta" HorizontalAlignment="Left" Margin="368,167,0,0" VerticalAlignment="Top" Width="75" Click="Find_Click"/>
@@ -23,7 +23,7 @@
         <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="368,199,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top"/>
         <TextBlock x:Name="surname" HorizontalAlignment="Left" Margin="368,220,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top"/>
         <TextBlock x:Name="patient_id" HorizontalAlignment="Left" Margin="368,240,0,0" TextWrapping="Wrap" Text="ID pacjenta" VerticalAlignment="Top" RenderTransformOrigin="-0.164,0.422"/>
-        <Button Content="Anuluj" HorizontalAlignment="Left" Margin="228,360,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="228,360,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
 
     </Grid>
 </Window>

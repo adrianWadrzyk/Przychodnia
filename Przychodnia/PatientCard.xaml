@@ -9,6 +9,7 @@
     <Grid Margin="0,0,0,174">
         <DataGrid x:Name="cards" Margin="0,0,0,70"/>
         <Button Content="Find" HorizontalAlignment="Left" Height="40" Margin="272,273,0,-68" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="130,273,0,-51" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="130,273,0,-51" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="40" Margin="394,273,0,-68" VerticalAlignment="Top" Width="57" Click="Cancel"/>
     </Grid>
 </Window>
