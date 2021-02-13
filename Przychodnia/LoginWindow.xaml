@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:Przychodnia"
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="login" HorizontalAlignment="Left" Height="23" Margin="268,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="156,141,0,0" TextWrapping="Wrap" Text="Nazwa użytkownika:" VerticalAlignment="Top"/>
-        <TextBox x:Name="password" HorizontalAlignment="Left" Height="23" Margin="268,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.004,-3.08"/>
-        <TextBlock HorizontalAlignment="Left" Margin="199,178,0,0" TextWrapping="Wrap" Text="Hasło" VerticalAlignment="Top"/>
-        <Button x:Name="login_button" Content="Zaloguj" HorizontalAlignment="Left" Margin="268,216,0,0" VerticalAlignment="Top" Width="75" Click="Login_action"/>
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10,2,2" Width="780" Height="407">
+        <TextBox x:Name="login" HorizontalAlignment="Left" Height="29" Margin="391,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" BorderBrush="#FF52A0CD" SelectionBrush="#FF0E236A"/>
+        <TextBlock HorizontalAlignment="Left" Margin="227,129,0,0" TextWrapping="Wrap" Text="Nazwa użytkownika:" VerticalAlignment="Top" Height="29" Width="157" FontSize="14" TextAlignment="Center"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Height="29" Margin="391,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" BorderBrush="#FF52A0CD" SelectionBrush="#FF0E236A"/>
+        <TextBlock HorizontalAlignment="Center" Margin="221,173,402,0" TextWrapping="Wrap" Text="Hasło" VerticalAlignment="Top" Width="157" Height="29" FontSize="14" TextAlignment="Center"/>
+        <Button x:Name="login_button" Content="Zaloguj" Margin="339,242,0,0" VerticalAlignment="Top" Width="108" Click="Login_action" Height="37" HorizontalAlignment="Left" BorderBrush="#FF4E5B99" Background="#FF47B8EE" FontSize="16" FontWeight="Bold"/>
 
     </Grid>
 </Window>

@@ -6,10 +6,30 @@
         xmlns:local="clr-namespace:Przychodnia"
         mc:Ignorable="d"
         Title="DoctorLoginWindow" Height="450" Width="800">
+    <Window.Resources>
+        <!-- basic button-->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="15px"/>
+            <Setter Property="Width" Value="160"/>
+        </Style>
+
+        <!-- Logout button-->
+        <Style TargetType="Button" x:Key="LogoutButton">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="16px"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button Content="Karty pacjentów" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Card_patient"/>
-        <Button Content="Utwórz nową kartę" HorizontalAlignment="Left" Margin="190,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Create_new_card"/>
-        <Button x:Name="logout" Content="Wyloguj" HorizontalAlignment="Left" Margin="647,10,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Logout"/>
-        <Button Content="Zarządzaj chorobami" HorizontalAlignment="Left" Margin="330,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="MenageSicks"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="455*"/>
+            <ColumnDefinition Width="337*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Karty pacjentów" HorizontalAlignment="Left" Margin="159,209,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Card_patient"/>
+        <Button Content="Utwórz nową kartę" HorizontalAlignment="Left" Margin="323,209,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Create_new_card" Grid.ColumnSpan="2"/>
+        <Button x:Name="logout" Content="Wyloguj" Style="{StaticResource LogoutButton}"  HorizontalAlignment="Left" Margin="170.789,10,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Logout" Grid.Column="1"/>
+        <Button Content="Zarządzaj chorobami" HorizontalAlignment="Left" Margin="38.789,209,0,0" VerticalAlignment="Top" Width="160" Height="46" Click="MenageSicks" RenderTransformOrigin="0.44,0.621" Grid.Column="1"/>
     </Grid>
 </Window>
