@@ -23,5 +23,32 @@ namespace Przychodnia
         {
             InitializeComponent();
         }
+
+        private void Login_action(object sender, RoutedEventArgs e)
+        {
+            if(login.Text.Length < 1)
+            {
+                MessageBox.Show("Podaj login!");
+                return;
+            }
+            if(password.Text.Length < 1)
+            {
+                MessageBox.Show("Podaj hasło");
+                return;
+            }
+            if(login.Text == "doc" && password.Text == "cod")
+            {
+
+            } else if(login.Text =="rejestracja" && password.Text == "haslo")
+            {
+
+            }else
+            {
+                MessageBox.Show("Podałeś błędne dane");
+                return;
+            }
+
+
+        }
     }
 }
