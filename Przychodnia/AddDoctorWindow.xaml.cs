@@ -26,7 +26,7 @@ namespace Przychodnia
             getSpecializations();
         }
 
-        private void addDoctor(object sender, RoutedEventArgs e)
+        private void AddDoctor(object sender, RoutedEventArgs e)
         {
             if(name.Text.Length < 1)
             {
@@ -96,13 +96,13 @@ namespace Przychodnia
                 specializations.Items.Add(x);
         }
 
-        private void checkState(object sender, RoutedEventArgs e)
+        private void CheckState(object sender, RoutedEventArgs e)
         {
             new_specjalization.IsEnabled = true;
             specializations.IsEnabled = false;
         }
 
-        private void setEnabledNewSpecjalization(object sender, RoutedEventArgs e)
+        private void SetEnabledNewSpecjalization(object sender, RoutedEventArgs e)
         {
             new_specjalization.IsEnabled = false; 
             specializations.IsEnabled = true;

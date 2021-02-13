@@ -25,7 +25,7 @@ namespace Przychodnia
             InitializeComponent();
         }
 
-        private void add_patient(object sender, RoutedEventArgs e)
+        private void Add_patient(object sender, RoutedEventArgs e)
         {
          
             if(!registerDate.SelectedDate.HasValue)

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="DoctorLoginWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Card Patient" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Card_patient"/>
-        <Button Content="Create new card" HorizontalAlignment="Left" Margin="190,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Create_new_card"/>
+        <Button Content="Karty pacjentów" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Card_patient"/>
+        <Button Content="Utwórz nową kartę" HorizontalAlignment="Left" Margin="190,301,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Create_new_card"/>
     </Grid>
 </Window>

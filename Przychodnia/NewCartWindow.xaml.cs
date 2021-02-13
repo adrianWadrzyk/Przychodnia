@@ -25,7 +25,7 @@ namespace Przychodnia
          InitializeComponent();
     }
 
-    private void find_Click(object sender, RoutedEventArgs e)
+    private void Find_Click(object sender, RoutedEventArgs e)
         {
             if (PESEL.Text.Length < 9)
             {
@@ -79,7 +79,7 @@ namespace Przychodnia
                 services.Items.Add(x.nazwa_uslugi);
         }
 
-        private void add_newCard(object sender, RoutedEventArgs e)
+        private void Add_newCard(object sender, RoutedEventArgs e)
         {
             if (patient_id.Text.Length == 0)
             {

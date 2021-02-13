@@ -57,14 +57,14 @@ namespace Przychodnia
             this.patients.ItemsSource = results.ToList();
         }
 
-        private void register(object sender, RoutedEventArgs e)
+        private void Register(object sender, RoutedEventArgs e)
         {
             Przychodnia.RegisterWindow register = new RegisterWindow();
             this.Close();
             register.Show();
         }
 
-        private void deleteRow(object sender, RoutedEventArgs e)
+        private void DeleteRow(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace Przychodnia
             getPatients();
         }
 
-        private void editRow(object sender, RoutedEventArgs e)
+        private void EditRow(object sender, RoutedEventArgs e)
         {
             var register = patients.SelectedItem as PatientRegisteredView;
             var data = from r in db.rejestracja where r.id_rejestracji == register.Id_rejestracji select new PatientRegisteredView
@@ -102,7 +102,7 @@ namespace Przychodnia
             }
         }
 
-        private void saveEditing(object sender, RoutedEventArgs e)
+        private void SaveEditing(object sender, RoutedEventArgs e)
         {
             var toEdit = edit.SelectedItem as PatientRegisteredView;
             var result = (from r in db.rejestracja where r.id_rejestracji == toEdit.Id_rejestracji select r).Single();
@@ -112,7 +112,7 @@ namespace Przychodnia
             getPatients();
         }
 
-        private void backToMain(object sender, RoutedEventArgs e)
+        private void BackToMain(object sender, RoutedEventArgs e)
         {
             LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();
             this.Hide();
