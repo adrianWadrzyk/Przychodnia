@@ -6,15 +6,26 @@
         xmlns:local="clr-namespace:Przychodnia"
         mc:Ignorable="d"
         Title="MenageSicksWindow" Height="450" Width="800">
+    <Window.Resources>
+        <!-- basic button-->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="15px"/>
+            <Setter Property="Width" Value="160"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TextBox x:Name="sick_codeTextBox" HorizontalAlignment="Left" Height="23" Margin="175,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="sick_nameTextBox" HorizontalAlignment="Left" Height="23" Margin="175,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="add_sickButton" Content="Dodaj chorobę" HorizontalAlignment="Left" Margin="187,177,0,0" VerticalAlignment="Top" Width="75" Click="Add_sickButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="88,149,0,0" TextWrapping="Wrap" Text="Nazwa choroby" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="88,122,0,0" TextWrapping="Wrap" Text="Kod choroby" VerticalAlignment="Top" Height="13" Width="82"/>
-        <ComboBox x:Name="sicks_list" HorizontalAlignment="Left" Margin="427,122,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="EnableDeleteButton"/>
-        <Button x:Name="delete_sick" Content="Usuń chorobę" HorizontalAlignment="Left" Margin="449,149,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="Delete"/>
-        <Button Content="Powrót" HorizontalAlignment="Left" Margin="325,252,0,0" VerticalAlignment="Top" Width="75" Click="Cancel"/>
+        <TextBox x:Name="sick_codeTextBox" HorizontalAlignment="Left" Height="32" Margin="240,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="sick_nameTextBox" HorizontalAlignment="Left" Height="33" Margin="240,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="add_sickButton" Content="Dodaj chorobę" HorizontalAlignment="Left" Margin="240,258,0,0" VerticalAlignment="Top" Width="140" Click="Add_sickButton_Click" Height="33"/>
+        <TextBlock HorizontalAlignment="Left" Margin="139,208,0,0" TextWrapping="Wrap" Text="Nazwa choroby" VerticalAlignment="Top" Height="23" Width="101"/>
+        <TextBlock HorizontalAlignment="Left" Margin="139,167,0,0" TextWrapping="Wrap" Text="Kod choroby" VerticalAlignment="Top" Height="19" Width="96"/>
+        <ComboBox x:Name="sicks_list" HorizontalAlignment="Left" Margin="447,208,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="EnableDeleteButton" Height="33"/>
+        <Button x:Name="delete_sick" Content="Usuń chorobę" HorizontalAlignment="Left" Margin="447,258,0,0" VerticalAlignment="Top" Width="140" IsEnabled="False" Click="Delete" Height="33"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Width="116" Click="Cancel" Height="46"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="203,119,0,0" TextWrapping="Wrap" Text="Dodaj chorobę do bazy" VerticalAlignment="Top" Width="177" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="431,119,0,0" TextWrapping="Wrap" Text="Usuń chorobę z bazy" VerticalAlignment="Top" Width="156" FontSize="16"/>
 
     </Grid>
 </Window>
