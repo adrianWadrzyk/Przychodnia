@@ -25,7 +25,7 @@ namespace Przychodnia
             InitializeComponent();
             GetSpecializations();
         }
-
+        // add doctor to database
         private void AddDoctor(object sender, RoutedEventArgs e)
         {
             if(name.Text.Length < 1)
@@ -88,26 +88,26 @@ namespace Przychodnia
             loggedRegistration.Show();
 
         }
-
+        // get specjalizations from database
         private void GetSpecializations()
         {
             var results = from r in db.specjalizacja select r.nazwa_specjalizacji;
             foreach (var x in results)
                 specializations.Items.Add(x);
         }
-
+        // check state
         private void CheckState(object sender, RoutedEventArgs e)
         {
             new_specjalization.IsEnabled = true;
             specializations.IsEnabled = false;
         }
-
+        
         private void SetEnabledNewSpecjalization(object sender, RoutedEventArgs e)
         {
             new_specjalization.IsEnabled = false; 
             specializations.IsEnabled = true;
         }
-
+        // back to main menu
         private void Cancel(object sender, RoutedEventArgs e)
         {
             LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();

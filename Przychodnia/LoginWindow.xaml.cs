@@ -23,7 +23,7 @@ namespace Przychodnia
         {
             InitializeComponent();
         }
-
+        // basic login function
         private void Login_action(object sender, RoutedEventArgs e)
         {
             if(login.Text.Length < 1)

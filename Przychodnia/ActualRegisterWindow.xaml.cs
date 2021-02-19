@@ -36,7 +36,7 @@ namespace Przychodnia
             public string Data_rejestracji { get; set; }
             public TimeSpan Godzina_przyjęcia { get; set; }
         }
-
+        // get patients data from server
         private void GetPatients()
         {
             var results = from r in db.rejestracja
@@ -56,14 +56,14 @@ namespace Przychodnia
                           };
             this.patients.ItemsSource = results.ToList();
         }
-
+        // show register window
         private void Register(object sender, RoutedEventArgs e)
         {
             Przychodnia.RegisterWindow register = new RegisterWindow();
             this.Close();
             register.Show();
         }
-
+        // function to delete row in edit view
         private void DeleteRow(object sender, RoutedEventArgs e)
         {
             try
@@ -81,7 +81,7 @@ namespace Przychodnia
             db.SaveChanges();
             GetPatients();
         }
-
+        // select register to edit
         private void EditRow(object sender, RoutedEventArgs e)
         {
             var register = patients.SelectedItem as PatientRegisteredView;
@@ -101,7 +101,7 @@ namespace Przychodnia
                 return;
             }
         }
-
+        // function to save edited row
         private void SaveEditing(object sender, RoutedEventArgs e)
         {
             var toEdit = edit.SelectedItem as PatientRegisteredView;
@@ -111,7 +111,7 @@ namespace Przychodnia
             db.SaveChanges();
             GetPatients();
         }
-
+        // function for back to menu
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();

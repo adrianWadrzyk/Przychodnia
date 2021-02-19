@@ -26,7 +26,7 @@ namespace Przychodnia
             InitializeComponent();
             FillSicksList();
         }
-
+        // function to adding sick
         private void Add_sickButton_Click(object sender, RoutedEventArgs e)
         {
             if(sick_nameTextBox.Text.Length < 1)
@@ -57,19 +57,19 @@ namespace Przychodnia
             this.Close();
             doctorLogin.Show();
         }
-
+        // fil sicks list in view from database
         private void FillSicksList()
         {
             var results = from r in db.choroby select r.kod_choroby;
             foreach (var x in results)
                 sicks_list.Items.Add(x);
         }
-
+        
         private void EnableDeleteButton(object sender, SelectionChangedEventArgs e)
         {
             delete_sick.IsEnabled = true;
         }
-
+        // delete sick function
         private void Delete(object sender, RoutedEventArgs e)
         {
             var toDelete = (from r in db.choroby
@@ -89,7 +89,7 @@ namespace Przychodnia
             doctorLogin.Show();
            
         }
-
+        // back to doctor main window
         private void Cancel(object sender, RoutedEventArgs e)
         {
             DoctorLoginWindow doctorLogin = new DoctorLoginWindow();

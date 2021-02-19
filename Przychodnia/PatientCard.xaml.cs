@@ -25,7 +25,7 @@ namespace Przychodnia
         {
             InitializeComponent();
         }
-
+        // find patient by PESEL
         private void GetPatients(string PESEL)
         {
 
@@ -39,12 +39,12 @@ namespace Przychodnia
 
             this.cards.ItemsSource = card.ToList();
         }
-
+        // run function for search patient 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             GetPatients(PESEL.Text.Trim());
         }
-
+        // back to doctor main window
         private void Cancel(object sender, RoutedEventArgs e)
         {
             DoctorLoginWindow doctorLogin = new DoctorLoginWindow();

@@ -24,10 +24,10 @@ namespace Przychodnia
         {
             InitializeComponent();
         }
-
+        // add patient to database
         private void Add_patient(object sender, RoutedEventArgs e)
         {
-         
+         // checking value
             if(!registerDate.SelectedDate.HasValue)
             {
                 MessageBox.Show("Wybierz datę wizyty!");
@@ -75,7 +75,7 @@ namespace Przychodnia
                 MessageBox.Show("Telefon nie może zawierać liter");
                 return;
             }
-
+            // new pactient
             pacjent pacjent = new pacjent()
             {
                 imie = name_box.Text,
@@ -86,7 +86,7 @@ namespace Przychodnia
                 ulica = street_box.Text,
                 nr_lokalu = house_num_box.Text
             };
-
+            // new register
             rejestracja rejestration = new rejestracja()
             {
                 id_pacjenta = pacjent.id_pacjenta,
@@ -108,12 +108,12 @@ namespace Przychodnia
             CloseForm();
             db.SaveChanges();
         }
-
+        // cancel function
         private void Cancel(object sender, RoutedEventArgs e)
         {
             CloseForm();
         }
-
+        // get doctors for comboBox list
         private void GetDoctors()
         {
             var results = from row in db.lekarz select row;

@@ -34,12 +34,12 @@ namespace Przychodnia
             db.pacjent.Load();
             patientViewSource.Source = db.pacjent.Local;
         }
-
+        // move to next record
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             patientViewSource.View.MoveCurrentToNext();
         }
-
+        //  back to main menu
         private void Close(object sender, RoutedEventArgs e)
         {
             LoggedRegistrationWindow loggedRegistration = new LoggedRegistrationWindow();

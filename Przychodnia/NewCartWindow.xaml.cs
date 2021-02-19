@@ -24,7 +24,7 @@ namespace Przychodnia
         {
          InitializeComponent();
     }
-
+    // function for search patient
     private void Find_Click(object sender, RoutedEventArgs e)
         {
             if (PESEL.Text.Length < 9)
@@ -56,12 +56,14 @@ namespace Przychodnia
                 add_card.IsEnabled = true;
             }
         }
+        // fill doctors comboBox list
         private void GetDoctors()
         {
             var results = from row in db.lekarz select row;
             foreach (var x in results)
                 docktor.Items.Add(x.imie);
         }
+        // fill sicks comboBox list
 
         private void GetSickCode()
         {
@@ -69,6 +71,7 @@ namespace Przychodnia
             foreach (var x in results)
                 sick_code.Items.Add(x.kod_choroby + " ("+ x.nazwa_choroby + ")");
         }
+        // fill cure comboBox list
 
         private void GetCure()
         {
@@ -76,6 +79,7 @@ namespace Przychodnia
             foreach (var x in results)
                 cure.Items.Add(x.nazwa_leku);
         }
+        // fill services comboBox list
 
         private void GetServices()
         {
@@ -83,7 +87,7 @@ namespace Przychodnia
             foreach (var x in results)
                 services.Items.Add(x.nazwa_uslugi);
         }
-
+        // function for adding new card to database
         private void Add_newCard(object sender, RoutedEventArgs e)
         {
             if (patient_id.Text.Length == 0)
@@ -135,7 +139,7 @@ namespace Przychodnia
             this.Close();
             doctorLogin.Show();
         }
-
+        // back to doctor main window
         private void Cancel(object sender, RoutedEventArgs e)
         {
             DoctorLoginWindow doctorLogin = new DoctorLoginWindow();
