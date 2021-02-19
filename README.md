@@ -10,5 +10,6 @@ Projekt zaliczeniowy C#
   2. Ustaw połączenie
    - Uruchom Przychodnia.sln.
    - Otwórz App.config.
-   - Zamień data source=DESKTOP-LPGHSF0\SQLEXPRESS na nazwę swojego serwera MS SQL.(np. data source="localhost\SQLEXPRESS").
+   - Zamień data source=DESKTOP-LPGHSF0\SQLEXPRESS na nazwę swojego 
+     serwera MS SQL.(np. data source=localhost\SQLEXPRESS).
  3. Uruchom projekt.
