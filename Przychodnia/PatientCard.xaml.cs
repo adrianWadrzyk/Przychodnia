@@ -26,29 +26,16 @@ namespace Przychodnia
             InitializeComponent();
         }
 
-        public class PatientsCard
-        {
-            public string Imie { get; set; }
-            public string Nazwisko { get; set; }
-            public string Choroba { get; set; }
-            public string Lekarz { get; set; }
-        }
-
         private void GetPatients(string PESEL)
         {
 
-            var patient = from p in db.pacjent
+            var patient = (from p in db.pacjent
                           where p.PESEL == PESEL
-                          select p;
+                          select p).FirstOrDefault();
 
-            var card = from x in patient
-                       from c in db.karta_pacjenta
-                       where x.id_pacjenta == c.id_pacjenta
-                       select new PatientsCard
-                       {
-                           Imie = x.imie,
-                           Nazwisko = x.nazwisko,
-                       };
+            var card =  from c in db.karta_pacjenta
+                        where patient.id_pacjenta == c.id_pacjenta
+                        select c;
 
             this.cards.ItemsSource = card.ToList();
         }

@@ -6,10 +6,19 @@
         xmlns:local="clr-namespace:Przychodnia"
         mc:Ignorable="d"
         Title="PatientCard" Height="450" Width="800">
+    <Window.Resources>
+        <!-- basic button-->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Azure"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="15px"/>
+            <Setter Property="Width" Value="160"/>
+        </Style>
+    </Window.Resources>
     <Grid Margin="0,0,0,174">
         <DataGrid x:Name="cards" Margin="0,0,0,70"/>
-        <Button Content="Find" HorizontalAlignment="Left" Height="40" Margin="272,273,0,-68" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="23" Margin="130,273,0,-51" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Powrót" HorizontalAlignment="Left" Height="40" Margin="394,273,0,-68" VerticalAlignment="Top" Width="57" Click="Cancel"/>
+        <Button Content="Wyszukaj za pomocą PESEL" HorizontalAlignment="Left" Height="40" Margin="289,292,0,-87" VerticalAlignment="Top" Width="196" Click="Button_Click"/>
+        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="40" Margin="326,247,0,-42" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="40" Margin="705,372,0,-167" VerticalAlignment="Top" Width="75" Click="Cancel"/>
     </Grid>
 </Window>
