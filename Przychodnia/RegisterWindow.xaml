@@ -27,7 +27,7 @@
         <TextBox x:Name="city_box" HorizontalAlignment="Left" Height="23" Margin="347,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <TextBox x:Name="street_box" HorizontalAlignment="Left" Height="23" Margin="347,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
         <TextBox x:Name="house_num_box" HorizontalAlignment="Left" Height="23" Margin="347,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
-        <Label Content="Imię" HorizontalAlignment="Left" Margin="265,76,0,76" RenderTransformOrigin="0.44,-0.408" Width="77"/>
+        <Label Content="Imię" HorizontalAlignment="Left" Margin="265,76,0,71" RenderTransformOrigin="0.44,-0.408" Width="77"/>
         <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="265,104,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408" Height="23" Width="77"/>
         <Label Content="Pesel" HorizontalAlignment="Left" Margin="265,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408" Height="23" Width="77"/>
         <Label Content="Telefon" HorizontalAlignment="Left" Margin="265,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,-0.408" Height="23" Width="77" Grid.RowSpan="2"/>

@@ -17,8 +17,8 @@
     </Window.Resources>
     <Grid Margin="0,0,0,174">
         <DataGrid x:Name="cards" Margin="0,0,0,70"/>
-        <Button Content="Wyszukaj za pomocą PESEL" HorizontalAlignment="Left" Height="40" Margin="289,292,0,-87" VerticalAlignment="Top" Width="196" Click="Button_Click"/>
-        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="40" Margin="326,247,0,-42" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Powrót" HorizontalAlignment="Left" Height="40" Margin="705,372,0,-167" VerticalAlignment="Top" Width="75" Click="Cancel"/>
+        <Button Content="Wyszukaj za pomocą PESEL" HorizontalAlignment="Left" Height="48" Margin="295,309,0,-112" VerticalAlignment="Top" Width="196" Click="Button_Click"/>
+        <TextBox x:Name="PESEL" HorizontalAlignment="Left" Height="40" Margin="332,264,0,-59" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Height="40" Margin="674,366,0,-161" VerticalAlignment="Top" Width="100" Click="Cancel"/>
     </Grid>
 </Window>

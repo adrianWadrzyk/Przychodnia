@@ -14,12 +14,17 @@
             <Setter Property="FontSize" Value="15px"/>
             <Setter Property="Width" Value="160"/>
         </Style>
+        <Style TargetType="Button" x:Key="LogoutButton">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="16px"/>
+        </Style>
     </Window.Resources>
     <Grid>
-        <Button x:Name="register_the_patient" Content="Zarejestruj pacjenta" HorizontalAlignment="Left" Margin="10,363,0,0" VerticalAlignment="Top" Width="141" Height="46" Click="Register_the_patient_handler"/>
-        <Button Content="Wszyscy pacjenci" HorizontalAlignment="Left" Margin="300,363,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="All_patientShow"/>
-        <Button Content="Aktualnie zarejestrowani" HorizontalAlignment="Left" Margin="156,363,0,0" VerticalAlignment="Top" Width="139" Height="46" Click="Actual_register"/>
-        <Button Content="Zatrudnij doktora" HorizontalAlignment="Left" Margin="440,363,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Hiring_doctor"/>
-        <Button Content="Wyloguj" HorizontalAlignment="Left" Margin="647,10,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Logout"/>
+        <Button x:Name="register_the_patient" Content="Zarejestruj pacjenta" HorizontalAlignment="Left" Margin="91,207,0,0" VerticalAlignment="Top" Width="141" Height="46" Click="Register_the_patient_handler"/>
+        <Button Content="Wszyscy pacjenci" HorizontalAlignment="Left" Margin="431,207,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="All_patientShow"/>
+        <Button Content="Aktualnie zarejestrowani" HorizontalAlignment="Left" Margin="237,207,0,0" VerticalAlignment="Top" Width="189" Height="46" Click="Actual_register"/>
+        <Button Content="Zatrudnij doktora" HorizontalAlignment="Left" Margin="571,207,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Hiring_doctor"/>
+        <Button Content="Wyloguj" HorizontalAlignment="Left" Margin="647,10,0,0" VerticalAlignment="Top" Width="135" Height="46" Click="Logout" Style="{StaticResource LogoutButton}"/>
     </Grid>
 </Window>
